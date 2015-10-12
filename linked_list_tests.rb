@@ -5,4 +5,8 @@ class LinkedListTests < Test::Unit::TestCase
 	def test_initialize_empty_node
 		empty = EmptyNode.new
 	end
+
+	def test_initialize_leaf_node
+		leaf = LeafNode.new 8
+	end
 end
