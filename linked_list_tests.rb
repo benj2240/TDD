@@ -10,10 +10,16 @@ class LinkedListTests < Test::Unit::TestCase
 		leaf = LeafNode.new 8
 	end
 
+	def test_initialize_link_node
+		leaf = LeafNode.new "j"
+		link = LinkNode.new "i", leaf
+	end
+
 	def test_empty_insert_returns_leaf
 		empty = EmptyNode.new
 		expected = LeafNode.new :a
 		result = empty.insert :a
 		assert_equal expected, result
 	end
+
 end

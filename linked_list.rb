@@ -5,3 +5,5 @@ class EmptyNode
 end
 
 LeafNode = Struct.new :value
+
+LinkNode = Struct.new :value, :child
