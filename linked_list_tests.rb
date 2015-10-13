@@ -140,4 +140,11 @@ class LinkedListTests < Test::Unit::TestCase
 		expected = EmptyNode.instance
 		assert_equal expected, result
 	end
+
+	def test_leaf_node_delete_non_match
+		leaf = LeafNode.new "wow"
+		result = leaf.delete "omg"
+		expected = leaf
+		assert_equal expected, result
+	end
 end

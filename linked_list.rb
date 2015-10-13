@@ -31,7 +31,11 @@ LeafNode = Struct.new :value do
 	end
 
 	def delete value
-		return EmptyNode.instance
+		if value == self.value
+			EmptyNode.instance
+		else
+			self
+		end
 	end
 
 	def to_a
