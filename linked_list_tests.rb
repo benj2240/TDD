@@ -33,8 +33,12 @@ class LinkedListTests < Test::Unit::TestCase
 		leaf = LeafNode.new 3
 		original_link = leaf.insert 2
 		new_link = original_link.insert 1
-		
+
 		# essentially pointer comparison
 		assert original_link.equal?(new_link)
+	end
+
+	def test_initialize_linked_list
+		list = LinkedList.new
 	end
 end

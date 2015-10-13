@@ -16,3 +16,9 @@ LinkNode = Struct.new :value, :child do
 		self
 	end
 end
+
+class LinkedList
+	def initialize
+		@root = EmptyNode.new
+	end
+end
