@@ -1,4 +1,8 @@
+require 'singleton'
+
 class EmptyNode
+	include Singleton
+
 	def insert value
 		LeafNode.new value
 	end
@@ -24,6 +28,10 @@ LeafNode = Struct.new :value do
 	def get index
 		raise "Index out of range" if index != 0
 		self.value
+	end
+
+	def delete value
+		return EmptyNode.instance
 	end
 
 	def to_a
@@ -55,7 +63,7 @@ end
 
 class LinkedList
 	def initialize values = []
-		@root = EmptyNode.new
+		@root = EmptyNode.instance
 
 		values.each do |value|
 			@root = @root.insert value

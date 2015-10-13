@@ -3,7 +3,7 @@ require_relative 'linked_list.rb'
 
 class LinkedListTests < Test::Unit::TestCase
 	def test_initialize_empty_node
-		empty = EmptyNode.new
+		empty = EmptyNode.instance
 	end
 
 	def test_initialize_leaf_node
@@ -16,7 +16,7 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_empty_insert_returns_leaf
-		empty = EmptyNode.new
+		empty = EmptyNode.instance
 		expected = LeafNode.new :a
 		result = empty.insert :a
 		assert_equal expected, result
@@ -47,7 +47,7 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_empty_node_to_a
-		empty = EmptyNode.new
+		empty = EmptyNode.instance
 		assert_equal [], empty.to_a
 	end
 
@@ -80,7 +80,7 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_empty_node_get
-		empty = EmptyNode.new
+		empty = EmptyNode.instance
 		assert_raise RuntimeError do
 			empty.get 0
 		end
@@ -93,7 +93,7 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_leaf_node_get_non_zero
-		leaf = LeafNode.new EmptyNode.new
+		leaf = LeafNode.new EmptyNode.instance
 		assert_raise RuntimeError do
 			leaf.get 5
 		end
@@ -128,9 +128,16 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_empty_node_delete
-		empty = EmptyNode.new
+		empty = EmptyNode.instance
 		assert_raise RuntimeError do
 			empty.delete "wow"
 		end
+	end
+
+	def test_leaf_node_delete_match
+		leaf = LeafNode.new "wow"
+		result = leaf.delete "wow"
+		expected = EmptyNode.instance
+		assert_equal expected, result
 	end
 end
