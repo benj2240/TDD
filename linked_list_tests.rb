@@ -163,4 +163,17 @@ class LinkedListTests < Test::Unit::TestCase
 		expected = LeafNode.new "wow"
 		assert_equal expected, result
 	end
+
+	def test_delete_link_in_chain
+		# [1,2,3] - 1 => [1,3]
+		link = LeafNode.new 1
+		link = link.insert 2
+		link = link.insert 3
+		result = link.delete 2
+
+		expected = LeafNode.new 1
+		expected = expected.insert 3
+		
+		assert_equal expected, result
+	end
 end

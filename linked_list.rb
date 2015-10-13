@@ -64,7 +64,12 @@ LinkNode = Struct.new :value, :child do
 		if value == self.value
 			self.child
 		else
-			LeafNode.new self.value
+			self.child = self.child.delete value
+			if self.child == EmptyNode.instance
+				LeafNode.new self.value
+			else
+				self
+			end
 		end
 	end
 
