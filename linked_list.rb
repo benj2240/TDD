@@ -36,8 +36,10 @@ LinkNode = Struct.new :value, :child do
 	def get index
 		if index == 0
 			self.value
-		else
+		elsif index > 0
 			self.child.get index - 1
+		else
+			raise ArgumentError.new "Negative index"
 		end
 	end
 
