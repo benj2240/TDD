@@ -7,6 +7,10 @@ class EmptyNode
 		raise "List is empty"
 	end
 
+	def delete value
+		raise "List is empty"
+	end
+
 	def to_a
 		[]
 	end

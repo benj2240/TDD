@@ -126,4 +126,11 @@ class LinkedListTests < Test::Unit::TestCase
 		result = list.get 1
 		assert_equal :one, result
 	end
+
+	def test_empty_node_delete
+		empty = EmptyNode.new
+		assert_raise RuntimeError do
+			empty.delete "wow"
+		end
+	end
 end
