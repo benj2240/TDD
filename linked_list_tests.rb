@@ -91,4 +91,11 @@ class LinkedListTests < Test::Unit::TestCase
 		result = leaf.get 0
 		assert_equal "value", result
 	end
+
+	def test_leaf_node_get_non_zero
+		leaf = LeafNode.new EmptyNode.new
+		assert_raise RuntimeError do
+			leaf.get 5
+		end
+	end
 end

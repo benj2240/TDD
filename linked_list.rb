@@ -18,6 +18,7 @@ LeafNode = Struct.new :value do
 	end
 
 	def get index
+		raise "Index out of range" if index != 0
 		self.value
 	end
 
