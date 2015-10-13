@@ -28,4 +28,13 @@ class LinkedListTests < Test::Unit::TestCase
 		result = leaf.insert []
 		assert_equal expected, result
 	end
+
+	def test_link_insert_returns_self
+		leaf = LeafNode.new 3
+		original_link = leaf.insert 2
+		new_link = original_link.insert 1
+		
+		# essentially pointer comparison
+		assert original_link.equal?(new_link)
+	end
 end

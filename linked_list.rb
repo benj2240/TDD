@@ -10,4 +10,9 @@ LeafNode = Struct.new :value do
 	end
 end
 
-LinkNode = Struct.new :value, :child
+LinkNode = Struct.new :value, :child do
+	def insert value
+		self.child = self.child.insert value
+		self
+	end
+end
