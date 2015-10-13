@@ -117,4 +117,13 @@ class LinkedListTests < Test::Unit::TestCase
 			link.get -1
 		end
 	end
+
+	def test_linked_list_get
+		list = LinkedList.new
+		list.insert :zero
+		list.insert :one
+		list.insert :two
+		result = list.get 1
+		assert_equal :one, result
+	end
 end

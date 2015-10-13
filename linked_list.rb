@@ -62,6 +62,10 @@ class LinkedList
 		@root = @root.insert value
 	end
 
+	def get index
+		@root.get index
+	end
+
 	def to_a
 		@root.to_a
 	end
