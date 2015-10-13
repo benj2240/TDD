@@ -60,6 +60,10 @@ LinkNode = Struct.new :value, :child do
 		end
 	end
 
+	def delete value
+		return self.child
+	end
+
 	def to_a
 		[self.value] + self.child.to_a
 	end
