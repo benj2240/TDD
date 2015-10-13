@@ -22,4 +22,10 @@ class LinkedListTests < Test::Unit::TestCase
 		assert_equal expected, result
 	end
 
+	def test_leaf_insert_returns_link
+		leaf = LeafNode.new -2
+		expected = LinkNode.new(-2, LeafNode.new([]))
+		result = leaf.insert []
+		assert_equal expected, result
+	end
 end
