@@ -18,7 +18,11 @@ LinkNode = Struct.new :value, :child do
 end
 
 class LinkedList
-	def initialize
+	def initialize values = []
 		@root = EmptyNode.new
+		
+		values.each do |value|
+			@root = @root.insert value
+		end
 	end
 end
