@@ -38,6 +38,10 @@ class LinkedList
 		end
 	end
 
+	def insert value
+		@root = @root.insert value
+	end
+
 	def to_a
 		@root.to_a
 	end

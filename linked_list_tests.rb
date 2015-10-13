@@ -52,4 +52,12 @@ class LinkedListTests < Test::Unit::TestCase
 		result = list.to_a
 		assert_equal expected, result
 	end
+
+	def test_linked_list_insert
+		list = LinkedList.new [1,2,3]
+		list.insert 4
+		expected = [1,2,3,4]
+		result = list.to_a
+		assert_equal expected, result
+	end
 end
