@@ -78,4 +78,11 @@ class LinkedListTests < Test::Unit::TestCase
 		result = list.to_a
 		assert_equal expected, result
 	end
+
+	def test_empty_node_get
+		empty = EmptyNode.new
+		assert_raise RuntimeError do
+			empty.get 0
+		end
+	end
 end

@@ -3,6 +3,10 @@ class EmptyNode
 		LeafNode.new value
 	end
 
+	def get index
+		raise "List is empty"
+	end
+
 	def to_a
 		[]
 	end
