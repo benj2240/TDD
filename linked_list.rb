@@ -2,11 +2,19 @@ class EmptyNode
 	def insert value
 		LeafNode.new value
 	end
+
+	def to_a
+		[]
+	end
 end
 
 LeafNode = Struct.new :value do
 	def insert value
 		LinkNode.new(self.value, LeafNode.new(value))
+	end
+
+	def to_a
+		[self.value]
 	end
 end
 
@@ -15,14 +23,22 @@ LinkNode = Struct.new :value, :child do
 		self.child = self.child.insert value
 		self
 	end
+
+	def to_a
+		[self.value] + self.child.to_a
+	end
 end
 
 class LinkedList
 	def initialize values = []
 		@root = EmptyNode.new
-		
+
 		values.each do |value|
 			@root = @root.insert value
 		end
+	end
+
+	def to_a
+		@root.to_a
 	end
 end

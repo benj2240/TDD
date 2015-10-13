@@ -45,4 +45,11 @@ class LinkedListTests < Test::Unit::TestCase
 	def test_initialize_full_linked_list
 		list = LinkedList.new [:a, :b, :c]
 	end
+
+	def test_linked_list_to_a
+		list = LinkedList.new [1,2,3]
+		expected = [1,2,3]
+		result = list.to_a
+		assert_equal expected, result
+	end
 end
