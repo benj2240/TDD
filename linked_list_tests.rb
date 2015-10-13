@@ -98,4 +98,10 @@ class LinkedListTests < Test::Unit::TestCase
 			leaf.get 5
 		end
 	end
+
+	def test_link_node_get_zero
+		link = LinkNode.new([{}], LeafNode.new(nil))
+		result = link.get 0
+		assert_equal [{}], result
+	end
 end

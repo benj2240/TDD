@@ -33,6 +33,10 @@ LinkNode = Struct.new :value, :child do
 		self
 	end
 
+	def get index
+		self.value
+	end
+
 	def to_a
 		[self.value] + self.child.to_a
 	end
