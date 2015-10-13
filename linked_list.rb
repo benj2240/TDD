@@ -61,7 +61,11 @@ LinkNode = Struct.new :value, :child do
 	end
 
 	def delete value
-		return self.child
+		if value == self.value
+			self.child
+		else
+			LeafNode.new self.value
+		end
 	end
 
 	def to_a
