@@ -17,6 +17,10 @@ LeafNode = Struct.new :value do
 		LinkNode.new(self.value, LeafNode.new(value))
 	end
 
+	def get index
+		self.value
+	end
+
 	def to_a
 		[self.value]
 	end

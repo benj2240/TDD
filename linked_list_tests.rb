@@ -85,4 +85,10 @@ class LinkedListTests < Test::Unit::TestCase
 			empty.get 0
 		end
 	end
+
+	def test_leaf_node_get_zero
+		leaf = LeafNode.new "value"
+		result = leaf.get 0
+		assert_equal "value", result
+	end
 end
