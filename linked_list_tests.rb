@@ -173,7 +173,17 @@ class LinkedListTests < Test::Unit::TestCase
 
 		expected = LeafNode.new 1
 		expected = expected.insert 3
-		
+
 		assert_equal expected, result
+	end
+
+	def test_delete_from_list
+		list = LinkedList.new [1,2,3,4]
+		list.delete 5
+		assert_equal [1,2,3,4], list.to_a
+		list.delete 4
+		assert_equal [1,2,3], list.to_a
+		list.delete 2
+		assert_equal [1,3], list.to_a
 	end
 end

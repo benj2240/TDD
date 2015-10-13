@@ -95,6 +95,10 @@ class LinkedList
 		@root.get index
 	end
 
+	def delete value
+		@root = @root.delete value
+	end
+
 	def to_a
 		@root.to_a
 	end
