@@ -80,42 +80,6 @@ class LinkedListTests < Test::Unit::TestCase
 		assert_equal :one, result
 	end
 
-	def test_empty_node_delete
-		empty = EmptyNode.instance
-		assert_raise RuntimeError do
-			empty.delete "wow"
-		end
-	end
-
-	def test_link_node_delete_match
-		leaf = Node.new "wow", EmptyNode.instance
-		link = leaf.insert "omg"
-		result = link.delete "wow"
-		expected = Node.new "omg", EmptyNode.instance
-		assert_equal expected, result
-	end
-
-	def test_link_node_delete_non_match
-		leaf = Node.new "wow", EmptyNode.instance
-		link = leaf.insert "omg"
-		result = link.delete "omg"
-		expected = Node.new "wow", EmptyNode.instance
-		assert_equal expected, result
-	end
-
-	def test_delete_link_in_chain
-		# [1,2,3] - 1 => [1,3]
-		link = Node.new 1, EmptyNode.instance
-		link = link.insert 2
-		link = link.insert 3
-		result = link.delete 2
-
-		expected = Node.new 1, EmptyNode.instance
-		expected = expected.insert 3
-
-		assert_equal expected, result
-	end
-
 	def test_delete_item_not_in_list
 		list = LinkedList.new [1,2,3,4]
 		assert_raise RuntimeError do
