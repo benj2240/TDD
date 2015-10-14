@@ -57,18 +57,6 @@ class LinkedListTests < Test::Unit::TestCase
 		end
 	end
 
-	def test_link_node_get_zero
-		link = Node.new([{}], Node.new(nil, EmptyNode.instance))
-		result = link.get 0
-		assert_equal [{}], result
-	end
-
-	def test_link_node_get_positive
-		link = Node.new([{}], Node.new(nil, EmptyNode.instance))
-		result = link.get 1
-		assert_equal nil, result
-	end
-
 	def test_link_node_get_negative
 		link = Node.new([{}], Node.new(nil, EmptyNode.instance))
 		assert_raise ArgumentError do
