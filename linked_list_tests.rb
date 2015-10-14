@@ -2,22 +2,6 @@ require 'test/unit'
 require_relative 'linked_list.rb'
 
 class LinkedListTests < Test::Unit::TestCase
-	def test_empty_insert_returns_node
-		empty = EmptyNode.instance
-		expected = Node.new :a, EmptyNode.instance
-		result = empty.insert :a
-		assert_equal expected, result
-	end
-
-	def test_link_insert_returns_self
-		leaf = Node.new 3, EmptyNode.instance
-		original_link = leaf.insert 2
-		new_link = original_link.insert 1
-
-		# essentially pointer comparison
-		assert original_link.equal?(new_link)
-	end
-
 	def test_empty_list_to_a
 		list = LinkedList.new
 		assert_equal [], list.to_a
@@ -42,7 +26,15 @@ class LinkedListTests < Test::Unit::TestCase
 		assert_equal expected, result
 	end
 
-	def test_linked_list_insert
+	def test_link_insert_returns_self
+		orig = Node.new 3, EmptyNode.instance
+		newb = orig.insert 1
+
+		# essentially pointer comparison
+		assert orig.equal?(newb)
+	end
+
+	def test_full_list_insert
 		list = LinkedList.new [1,2,3]
 		list.insert 4
 		expected = [1,2,3,4]
