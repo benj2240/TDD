@@ -10,7 +10,7 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_link_insert_returns_self
-		leaf = LeafNode.new 3
+		leaf = LinkNode.new 3, EmptyNode.instance
 		original_link = leaf.insert 2
 		new_link = original_link.insert 1
 
@@ -38,7 +38,7 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_link_node_to_a
-		link = LeafNode.new :link
+		link = LinkNode.new :link, EmptyNode.instance
 		link = link.insert :leaf
 		expected = [:link, :leaf]
 		result = link.to_a
@@ -110,29 +110,29 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_link_node_delete_match
-		leaf = LeafNode.new "wow"
+		leaf = LinkNode.new "wow", EmptyNode.instance
 		link = leaf.insert "omg"
 		result = link.delete "wow"
-		expected = LeafNode.new "omg"
+		expected = LinkNode.new "omg", EmptyNode.instance
 		assert_equal expected, result
 	end
 
 	def test_link_node_delete_non_match
-		leaf = LeafNode.new "wow"
+		leaf = LinkNode.new "wow", EmptyNode.instance
 		link = leaf.insert "omg"
 		result = link.delete "omg"
-		expected = LeafNode.new "wow"
+		expected = LinkNode.new "wow", EmptyNode.instance
 		assert_equal expected, result
 	end
 
 	def test_delete_link_in_chain
 		# [1,2,3] - 1 => [1,3]
-		link = LeafNode.new 1
+		link = LinkNode.new 1, EmptyNode.instance
 		link = link.insert 2
 		link = link.insert 3
 		result = link.delete 2
 
-		expected = LeafNode.new 1
+		expected = LinkNode.new 1, EmptyNode.instance
 		expected = expected.insert 3
 
 		assert_equal expected, result
