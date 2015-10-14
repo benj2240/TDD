@@ -50,13 +50,6 @@ class LinkedListTests < Test::Unit::TestCase
 		assert_equal expected, result
 	end
 
-	def test_empty_node_get
-		empty = EmptyNode.instance
-		assert_raise RuntimeError do
-			empty.get 0
-		end
-	end
-
 	def test_list_get_index_too_large
 		list = LinkedList.new [0,1,2]
 		assert_raise RuntimeError do
