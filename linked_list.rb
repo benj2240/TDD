@@ -4,7 +4,7 @@ class EmptyNode
 	include Singleton
 
 	def insert value
-		LinkNode.new value, EmptyNode.instance
+		Node.new value, EmptyNode.instance
 	end
 
 	def get index
@@ -20,7 +20,7 @@ class EmptyNode
 	end
 end
 
-LinkNode = Struct.new :value, :child do
+Node = Struct.new :value, :child do
 	def insert value
 		self.child = self.child.insert value
 		self
