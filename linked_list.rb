@@ -4,15 +4,15 @@ class EmptyNode
 	include Singleton
 
 	def insert value
-		LeafNode.new value
+		LinkNode.new value, EmptyNode.instance
 	end
 
 	def get index
-		raise "List is empty"
+		raise "Index out of bounds"
 	end
 
 	def delete value
-		raise "List is empty"
+		raise "Value not found"
 	end
 
 	def to_a

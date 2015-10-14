@@ -2,9 +2,9 @@ require 'test/unit'
 require_relative 'linked_list.rb'
 
 class LinkedListTests < Test::Unit::TestCase
-	def test_empty_insert_returns_leaf
+	def test_empty_insert_returns_node
 		empty = EmptyNode.instance
-		expected = LeafNode.new :a
+		expected = LinkNode.new :a, EmptyNode.instance
 		result = empty.insert :a
 		assert_equal expected, result
 	end
@@ -166,7 +166,9 @@ class LinkedListTests < Test::Unit::TestCase
 
 	def test_delete_from_list
 		list = LinkedList.new [1,2,3,4]
-		list.delete 5
+		assert_raise RuntimeError do
+			list.delete 5
+		end
 		assert_equal [1,2,3,4], list.to_a
 		list.delete 4
 		assert_equal [1,2,3], list.to_a
