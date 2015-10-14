@@ -18,14 +18,6 @@ class LinkedListTests < Test::Unit::TestCase
 		assert original_link.equal?(new_link)
 	end
 
-	def test_initialize_empty_linked_list
-		list = LinkedList.new
-	end
-
-	def test_initialize_full_linked_list
-		list = LinkedList.new [:a, :b, :c]
-	end
-
 	def test_empty_list_to_a
 		list = LinkedList.new
 		assert_equal [], list.to_a
