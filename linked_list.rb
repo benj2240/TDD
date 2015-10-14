@@ -28,12 +28,12 @@ Node = Struct.new :value, :child do
 
 	def get index
 		case index <=> 0
-		when -1
-			raise ArgumentError.new "Negative index"
-		when 0
-			self.value
 		when 1
 			self.child.get index - 1
+		when 0
+			self.value
+		when -1
+			raise ArgumentError.new "Negative index"
 		end
 	end
 
