@@ -8,7 +8,12 @@ class EmptyNode
 	end
 
 	def get index
-		raise "Index out of bounds"
+		case index >= 0
+		when true
+			raise "Index out of bounds"
+		when false
+			raise ArgumentError.new "Negative index"
+		end
 	end
 
 	def delete value

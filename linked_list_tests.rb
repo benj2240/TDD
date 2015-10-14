@@ -57,14 +57,21 @@ class LinkedListTests < Test::Unit::TestCase
 		end
 	end
 
-	def test_link_node_get_negative
-		link = Node.new([{}], Node.new(nil, EmptyNode.instance))
+	def test_empty_list_get_negative_index
+		list = LinkedList.new
 		assert_raise ArgumentError do
-			link.get -1
+			list.get -1
 		end
 	end
 
-	def test_linked_list_get
+	def test_full_list_get_negative_index
+		list = LinkedList.new [1,2,3]
+		assert_raise ArgumentError do
+			list.get -1
+		end
+	end
+
+	def test_linked_list_get_middle_element
 		list = LinkedList.new
 		list.insert :zero
 		list.insert :one
