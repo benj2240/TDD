@@ -75,19 +75,19 @@ class LinkedListTests < Test::Unit::TestCase
 	end
 
 	def test_link_node_get_zero
-		link = LinkNode.new([{}], LeafNode.new(nil))
+		link = LinkNode.new([{}], LinkNode.new(nil, EmptyNode.instance))
 		result = link.get 0
 		assert_equal [{}], result
 	end
 
 	def test_link_node_get_positive
-		link = LinkNode.new([{}], LeafNode.new(nil))
+		link = LinkNode.new([{}], LinkNode.new(nil, EmptyNode.instance))
 		result = link.get 1
 		assert_equal nil, result
 	end
 
 	def test_link_node_get_negative
-		link = LinkNode.new([{}], LeafNode.new(nil))
+		link = LinkNode.new([{}], LinkNode.new(nil, EmptyNode.instance))
 		assert_raise ArgumentError do
 			link.get -1
 		end
