@@ -73,10 +73,10 @@ class LinkedListTests < Test::Unit::TestCase
 		assert_equal "value", result
 	end
 
-	def test_leaf_node_get_non_zero
-		leaf = LeafNode.new EmptyNode.instance
+	def test_list_get_index_too_large
+		list = LinkedList.new [0,1,2]
 		assert_raise RuntimeError do
-			leaf.get 5
+			list.get 5
 		end
 	end
 
