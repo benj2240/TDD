@@ -26,23 +26,21 @@ class LinkedListTests < Test::Unit::TestCase
 		list = LinkedList.new [:a, :b, :c]
 	end
 
-	def test_empty_node_to_a
-		empty = EmptyNode.instance
-		assert_equal [], empty.to_a
+	def test_empty_list_to_a
+		list = LinkedList.new
+		assert_equal [], list.to_a
+	end
+
+	def test_emptied_list_to_a
+		list = LinkedList.new [:delete]
+		list.delete :delete
+		assert_equal [], list.to_a
 	end
 
 	def test_single_element_to_a
 		list = LinkedList.new
 		list.insert "f"
 		assert_equal ["f"], list.to_a
-	end
-
-	def test_link_node_to_a
-		link = Node.new :link, EmptyNode.instance
-		link = link.insert :leaf
-		expected = [:link, :leaf]
-		result = link.to_a
-		assert_equal expected, result
 	end
 
 	def test_linked_list_to_a
