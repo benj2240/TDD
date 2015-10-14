@@ -26,14 +26,6 @@ class LinkedListTests < Test::Unit::TestCase
 		assert_equal expected, result
 	end
 
-	def test_link_insert_returns_self
-		orig = Node.new 3, EmptyNode.instance
-		newb = orig.insert 1
-
-		# essentially pointer comparison
-		assert orig.equal?(newb)
-	end
-
 	def test_full_list_insert
 		list = LinkedList.new [1,2,3]
 		list.insert 4
